@@ -5,6 +5,8 @@ This project aims to develop a facial feature detection and drowsiness detection
 The goal is to accurately detect facial landmarks and track the driver's eye movements to understand their attention and distraction levels while driving.
 
 ## Files
+* [synthetic_signal.py]()
+  * **Labelling** images into Awake, Yawn and Drowsy and Creating **annotation** for pre-divided data
 
 * [annotation.py]()
   * **Labelling** images into Awake, Yawn and Drowsy and Creating **annotation** for pre-divided data
