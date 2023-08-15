@@ -1,0 +1,12 @@
+.idea
+.DS_Store
+**/dist
+**/dist_inference
+*#
+*~
+.#*
+.python-version
+__pycache__
+.ipynb_checkpoints
+**/*serviceaccount-key.json
+**/*.pem
