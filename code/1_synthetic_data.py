@@ -1,7 +1,7 @@
 # creating 25 images for awake and drwosy
 labels = ['Awake', 'Drowsy']  # yawing
 number_imgs = 50
-# collect iamge from video 
+# collect iamge from video
 cap = cv2.VideoCapture(0)  # camera index 0
 # Loop through labels
 for label in labels:

@@ -1,27 +1,32 @@
-
-from . import constants as c
-
+# Path to the directory containing your labeled data
+data_dir = 'datapreprocessing/Dataset/'
+annotation_labels_dir = 'datapreprocessing/Labels/'
+annotation_images_dir = 'datapreprocessing/Annotation_images/'
+multiple_dir = 'datapreprocessing/multiple/'
 # Load the pre-trained face detection model from OpenCV
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 
+# Define the class index for faces (can be 0)
+class_index = 0
+
 # Iterate through each subfolder
-for label in os.listdir(c.data_dir):
+for label in os.listdir(data_dir):
     '''------------------------------------------------------
         Labelling the image according to the folder they are in
     ------------------------------------------------------'''
     if label == "Awake":
-        c.class_index = 0
+        class_index = 0
     elif label == "Drowsy":
         class_index = 1
     else:  # yawn
         class_index = 2
 
     total_image, no_face, multiple_face = 0, 0, 0
-    label_dir = os.path.join(c.data_dir, label)
+    label_dir = os.path.join(data_dir, label)
     if os.path.isdir(label_dir):
-        annotation_label_dir = os.path.join(c.annotation_labels_dir, label)
+        annotation_label_dir = os.path.join(annotation_labels_dir, label)
         os.makedirs(annotation_label_dir, exist_ok=True)
-        annotation_image_dir = os.path.join(c.annotation_images_dir, label)
+        annotation_image_dir = os.path.join(annotation_images_dir, label)
         os.makedirs(annotation_image_dir, exist_ok=True)
 
         for image_file in os.listdir(label_dir):
@@ -63,7 +68,7 @@ for label in os.listdir(c.data_dir):
                     x, y, w, h = faces[0]
                     cv2.rectangle(image, (x, y), (x + w, y + h), (0, 255, 0), 2)
                     new_image_name = f'{label}_{image_file}'
-                    new_image_path = os.path.join(c.multiple_dir, new_image_name)
+                    new_image_path = os.path.join(multiple_dir, new_image_name)
                     cv2.imwrite(new_image_path, image)
 
                 '''------------------------------------------------------
