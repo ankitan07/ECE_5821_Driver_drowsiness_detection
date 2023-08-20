@@ -1,15 +1,16 @@
 # Path to the directory containing your labeled data
+
+import os
+import cv2
+
 data_dir = 'datapreprocessing/Dataset/'
 annotation_labels_dir = 'datapreprocessing/Labels/'
 annotation_images_dir = 'datapreprocessing/Annotation_images/'
 multiple_dir = 'datapreprocessing/multiple/'
-# Load the pre-trained face detection model from OpenCV
-face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 
-# Define the class index for faces (can be 0)
+face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 class_index = 0
 
-# Iterate through each subfolder
 for label in os.listdir(data_dir):
     '''------------------------------------------------------
         Labelling the image according to the folder they are in

@@ -1,6 +1,10 @@
+import os
+from threading import Thread
+import cv2
+import torch
+
 model = torch.hub.load('ultralytics/yolov5', 'custom', path='yolov5/runs/train/train_without_test/weights/last.pt',
                        force_reload=True)
-
 
 def alarm(msg):
     global alarm_status
@@ -21,8 +25,8 @@ def alarm(msg):
 
 
 # Initialize variables for drowsiness detection
-closed_eyes_frames, closed_eyes_threshold = 0, 5  # ie 20s eye closed Number of consecutive frames for closed eyes to trigger alarm
-yawning_frames, yawning_threshold = 0, 2  # Number of consecutive frames for yawning to trigger alarm
+closed_eyes_frames, closed_eyes_threshold = 0, 5
+yawning_frames, yawning_threshold = 0, 2
 yawn_flag, yawn_time_frame_count, yawn_total_time_frame = False, 0, 10
 
 alarm_status = False

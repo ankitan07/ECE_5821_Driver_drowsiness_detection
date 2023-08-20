@@ -1,4 +1,9 @@
-# Set the path to the directory containing your labeled data and annotations
+# Splitting the data to train, validate set
+import os
+import random
+import shutil
+
+
 data_dir = 'datapreprocessing/Dataset/'
 annotation_labels_dir = 'datapreprocessing/Labels/'
 
@@ -8,7 +13,6 @@ validate_dir = 'preprocessed_data/validate/'
 train_ratio = 0.7
 validate_ratio = 0.3
 
-# Iterate through each subfolder (label)
 for label in os.listdir(data_dir):
     image_dir = os.path.join(data_dir, label)
     annotation_label_dir = os.path.join(annotation_labels_dir, label)
@@ -42,7 +46,7 @@ for label in os.listdir(data_dir):
                 shutil.copy2(image_source_path, image_destination_path)
                 print(f'Copied image : {image_file}')
 
-                # copy annotation
+
                 label_source_path = os.path.join(annotation_label_dir, f'{os.path.splitext(image_file)[0]}.txt')
                 label_destination_path = os.path.join(new_label_dir, f'{os.path.splitext(image_file)[0]}.txt')
 
@@ -50,8 +54,3 @@ for label in os.listdir(data_dir):
                 shutil.copy2(label_source_path, label_destination_path)
                 print(f'Copied label : {image_file}')
 
-#         label_source_path = os.path.join(annotation_label_dir, f'{os.path.splitext(image_file)[0]}.txt')
-#         label_destination_path = os.path.join(new_label_subdir, f'{os.path.splitext(image_file)[0]}.txt')
-
-#         shutil.copy2(label_source_path, label_destination_path)
-#         print(f'Copied label : {os.path.splitext(image_file)[0]}.txt')
