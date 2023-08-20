@@ -18,7 +18,7 @@ The goal is to accurately detect facial landmarks and track the driver's eye mov
   * **Real time testing** of the model with alarm
 * [ECE_5821_Final_Project_report.pdf](https://github.com/ankitan07/ECE_5821_Driver_drowsiness_detection/blob/master/ECE_5821_Final_Project_report.pdf)
   * Project report
-* [Dataset]
+* **Dataset**
   * We have used mix of 2 type of dataset:
   * 1. Self generated dataset
     2. Pulically available dataset 
