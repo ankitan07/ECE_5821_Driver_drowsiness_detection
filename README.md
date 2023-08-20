@@ -17,4 +17,4 @@ The goal is to accurately detect facial landmarks and track the driver's eye mov
 * [6_realtime_testing_with_alarm.py](https://github.com/ankitan07/ECE_5821_Driver_drowsiness_detection/blob/master/6_realtime_testing_with_alarm.py)
   * **Real time testing** of the model with alarm
 * [ECE_5821_Final_Project_report.pdf](https://github.com/ankitan07/ECE_5821_Driver_drowsiness_detection/blob/master/ECE_5821_Final_Project_report.pdf)
-  * **Real time testing** of the model with alarm 
+  * Project report
