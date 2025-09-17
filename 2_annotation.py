@@ -8,6 +8,7 @@ annotation_labels_dir = 'datapreprocessing/Labels/'
 annotation_images_dir = 'datapreprocessing/Annotation_images/'
 multiple_dir = 'datapreprocessing/multiple/'
 
+#loading the retrained Haar Cascade face detector to detect the face
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 class_index = 0
 
@@ -48,6 +49,8 @@ for label in os.listdir(data_dir):
 
                     annotation_path = os.path.join(annotation_label_dir,
                                                    f'{label}_{os.path.splitext(image_file)[0]}.txt')
+
+                    # Writing the YOLO-style label file:
                     with open(annotation_path, 'w') as annotation_file:
                         img_height, img_width, _ = image.shape
                         x_center = (x + w / 2) / img_width
@@ -62,6 +65,7 @@ for label in os.listdir(data_dir):
                     new_image_path = os.path.join(annotation_image_dir, new_image_name)
                     cv2.imwrite(new_image_path, image)
 
+                #incase of No or Multiple Faces-count and save the multiple face for review
                 elif len(faces) == 0:
                     no_face += 1
                 else:
