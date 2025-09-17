@@ -6,7 +6,7 @@ import cv2
 
 labels = ['Awake', 'Drowsy']  # yawing
 number_imgs = 50
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(0)                                                                      #This creates a video capture object.Argument 0 : means use the default webcam on your computer.
 for label in labels:
     IMAGES_PATH = os.path.join('synthetic_data', label)
     print('Collecting images for {}'.format(label))
@@ -14,7 +14,7 @@ for label in labels:
 
     for img_num in range(number_imgs):
         print('Collecting images for {}, image number {}'.format(label, img_num))
-        ret, frame = cap.read()
+        ret, frame = cap.read()                                                                 # cap.read() grabs a frame from the webcam. ret is a boolean (True if successful), frame is the image.
         imgname = os.path.join(IMAGES_PATH, str(img_num) + '.jpg')
         cv2.imwrite(imgname, frame)
         cv2.imshow('Image Collection', frame)
